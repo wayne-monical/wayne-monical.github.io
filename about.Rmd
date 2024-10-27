@@ -1,0 +1,13 @@
+---
+title: "About"
+author: "Wayne Monical wem2121"
+date: "2024-10-27"
+output: html_document
+---
+
+
+## About Page
+
+[About](about.html)
+[Email](w3monical@gmail.com)
+[LinkedIn](www.linkedin.com/in/wayne-monical-108273219)

@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Wayne Monical wem2121" />
 
+<meta name="date" content="2024-10-27" />
 
-<title>Not sure what this does</title>
+<title>Homework 4</title>
 
 <script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -271,16 +273,25 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Not sure what this does</h1>
+<h1 class="title toc-ignore">Homework 4</h1>
+<h4 class="author">Wayne Monical wem2121</h4>
+<h4 class="date">2024-10-27</h4>
 
 </div>
 
 
-<div id="im-still-trying-to-figure-this-out" class="section level1">
-<h1>I’m still trying to figure this out</h1>
-<p><img
-src="https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif" /></p>
-</div>
+<pre class="r"><code>library(tidyverse)
+library(p8105.datasets)
+library(plotly)</code></pre>
+<pre class="r"><code>insta = 
+  instacart</code></pre>
+<pre class="r"><code>insta |&gt; 
+  select(order_id, days_since_prior_order) |&gt; 
+  distinct() |&gt; 
+  ggplot(aes(x = days_since_prior_order))+
+  geom_histogram()</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="homework_4_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 
 
 

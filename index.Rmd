@@ -1,8 +1,8 @@
 ---
-title: "My awesome website"
+title: "Not sure what this does"
 output: html_document
 ---
 
-# This is Jeff's awesome website
+# I'm still trying to figure this out
 
 ![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)

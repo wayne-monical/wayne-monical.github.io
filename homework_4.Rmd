@@ -1,0 +1,33 @@
+---
+title: "Homework 4"
+author: "Wayne Monical wem2121"
+date: "2024-10-27"
+output: html_document
+---
+
+
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+
+
+
+```{r}
+insta = 
+  instacart
+```
+
+
+
+```{r}
+insta |> 
+  select(order_id, days_since_prior_order) |> 
+  distinct() |> 
+  ggplot(aes(x = days_since_prior_order))+
+  geom_histogram()
+```
+
+

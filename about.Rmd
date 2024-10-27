@@ -8,6 +8,6 @@ output: html_document
 
 ## About Page
 
-[About](about.html)
-[Email](w3monical@gmail.com)
+[About](about.html)  
+[Email](w3monical@gmail.com)  
 [LinkedIn](www.linkedin.com/in/wayne-monical-108273219)

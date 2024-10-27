@@ -1,10 +1,6 @@
 ---
 title: "My awesome website"
-output: 
-  html_document:
-    toc: true
-    toc_float: true
-    theme: cerulean
+output: html_document
 ---
 
 # This is Jeff's awesome website

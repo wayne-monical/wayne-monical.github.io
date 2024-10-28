@@ -6,13 +6,40 @@ output: html_document
 ---
 
 
-```{r}
+```{r, message = FALSE}
 library(tidyverse)
 library(p8105.datasets)
 library(plotly)
 ```
 
 
+
+```{r}
+rest_inspec = 
+  p8105.datasets::rest_inspec |> 
+  mutate(
+    year = year(inspection_date),
+    month = year(inspection_date),
+    grade = 
+      replace_na(grade, 'No Grade') |>
+      factor(levels = c("A", "B", "C", "P",         "Not Yet Graded" "Z"             
+[6] "P"              "C"    ))
+  )
+```
+
+
+
+```{r}
+rest_inspec$grade |> unique()
+```
+
+```{r}
+rest_inspec$action |> unique()
+```
+
+```{r}
+rest_inspec
+```
 
 
 ```{r}
@@ -30,4 +57,19 @@ insta |>
   geom_histogram()
 ```
 
+
+
+```{r}
+head(insta)
+```
+
+
+
+```{r}
+insta |> 
+  summarize(popularity = )
+
+
+# plotly(x = )
+```
 

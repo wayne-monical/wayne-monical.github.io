@@ -1,8 +1,24 @@
 ---
-title: "Not sure what this does"
+title: ""
 output: html_document
 ---
 
-# I'm still trying to figure this out
+<center> <h1>Wayne Monical </h1> </center>
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+
+```{r, fig.align='center', out.width='30%', out.height='auto', echo = FALSE}
+knitr::include_graphics("images/headshot.jpg")
+```
+
+## About me
+
+Welcome to my website! My name is Wayne, and I am a first year master's degree student studying  Biostatistics at Columbia's Mailman School of Public Health. In 2021, I graduated from the University of California, Berkeley with a bachelor's degree in Mathematics and Statistics. From 2021 to 2023, I worked as a data scientist at First Republic Bank's anti-money laundering program. From 2023 to 2024, I worked on JP Morgan's CCOR Analytics team, focusing on cloud computing risks.
+
+
+
+## Contact
+
+[Email](w3monical@gmail.com)  
+[LinkedIn](www.linkedin.com/in/wayne-monical-108273219)
+
+

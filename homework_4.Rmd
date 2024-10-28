@@ -17,14 +17,11 @@ library(plotly)
 ```{r}
 rest_inspec = 
   p8105.datasets::rest_inspec |> 
+  drop_na(grade, score) |> 
+  filter(grade %in% c('A', 'B', 'C')) |> 
   mutate(
     year = year(inspection_date),
-    month = year(inspection_date),
-    grade = 
-      replace_na(grade, 'No Grade') |>
-      factor(levels = c("A", "B", "C", "P",         "Not Yet Graded" "Z"             
-[6] "P"              "C"    ))
-  )
+    month = year(inspection_date))
 ```
 
 
@@ -37,9 +34,22 @@ rest_inspec$grade |> unique()
 rest_inspec$action |> unique()
 ```
 
+
+
+
+
 ```{r}
-rest_inspec
+rest_inspec |> 
+  filter(boro != 'Missing') |> 
+  plot_ly(x = ~boro, y  = ~score, type = 'box')
 ```
+
+
+```{r}
+head(rest_inspec)
+```
+
+
 
 
 ```{r}

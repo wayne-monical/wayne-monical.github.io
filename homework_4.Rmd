@@ -20,6 +20,7 @@ rest_inspec =
   drop_na(grade, score) |> 
   filter(grade %in% c('A', 'B', 'C')) |> 
   mutate(
+    year_month = str_sub(inspection_date, 0, 7),
     year = year(inspection_date),
     month = year(inspection_date))
 ```
@@ -41,7 +42,7 @@ rest_inspec$action |> unique()
 ```{r}
 rest_inspec |> 
   filter(boro != 'Missing') |> 
-  plot_ly(x = ~boro, y  = ~score, type = 'box')
+  plot_ly(y =  ~score, type = 'box', x = ~boro, color = ~boro)
 ```
 
 
@@ -50,36 +51,25 @@ head(rest_inspec)
 ```
 
 
+```{r}
+rest_inspec |> 
+  count(grade) |> 
+  plot_ly(x = ~grade, y = ~n, color = ~grade, type = "bar")
+```
 
 
 ```{r}
-insta = 
-  instacart
+rest_inspec |>
+  group_by(year_month) |> 
+  count(grade) |> 
+  plot_ly(x = ~year_month, y = ~n, color = ~grade, type = 'scatter' , mode = 'lines')
 ```
 
 
 
-```{r}
-insta |> 
-  select(order_id, days_since_prior_order) |> 
-  distinct() |> 
-  ggplot(aes(x = days_since_prior_order))+
-  geom_histogram()
-```
-
 
 
 ```{r}
-head(insta)
-```
-
-
-
-```{r}
-insta |> 
-  summarize(popularity = )
-
-
-# plotly(x = )
+head(rest_inspec)
 ```
 

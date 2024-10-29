@@ -62,7 +62,7 @@ rest_inspec |>
 rest_inspec |>
   group_by(year_month) |> 
   count(grade) |> 
-  plot_ly(x = ~year_month, y = ~n, color = ~grade, type = 'scatter' , mode = 'lines')
+  plot_ly(x = ~year_month, y = ~n, color = ~grade, type = 'scatter', mode = 'markers')
 ```
 
 

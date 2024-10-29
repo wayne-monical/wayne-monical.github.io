@@ -10,13 +10,25 @@ output: html_document
 knitr::include_graphics("images/headshot.jpg")
 ```
 
-## About me
+### About me
 
-Welcome to my website! My name is Wayne, and I am a first year master's degree student studying  Biostatistics at Columbia's Mailman School of Public Health. In 2021, I graduated from the University of California, Berkeley with a bachelor's degree in Mathematics and Statistics. From 2021 to 2023, I worked as a data scientist at First Republic Bank's anti-money laundering program. From 2023 to 2024, I worked on JP Morgan's CCOR Analytics team, focusing on cloud computing risks.
+Welcome to my website! My name is Wayne, and I am an aspiring biostatistician. I like to use statistics to learn about life. I want to help people make informed decisions about their physical and mental health.  
+
+
+### Education
+
+I am a first year master's degree student studying  Biostatistics at Columbia's Mailman School of Public Health. In 2021, I graduated from the University of California, Berkeley with a bachelor's degree in Mathematics and Statistics. 
+
+
+### Experience
+
+From 2021 to 2023, I worked as a data scientist in First Republic Bank's anti-money laundering program. I built data pipelines and dashboards to make our data accessible and understandable. I designed and implemented machine learning models to identify unusual transactions.    
+
+From 2023 to 2024, I worked on JP Morgan's CCOR Analytics team, focusing on cloud computing risks. I used machine learning models to identify vulnerabilities in cloud applications.  
 
 
 
-## Contact
+### Contact
 
 [Email](w3monical@gmail.com)  
 [LinkedIn](www.linkedin.com/in/wayne-monical-108273219)

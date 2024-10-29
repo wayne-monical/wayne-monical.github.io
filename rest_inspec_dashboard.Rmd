@@ -1,13 +1,13 @@
 ---
-title: "Homework 4"
-author: "Wayne Monical wem2121"
-date: "2024-10-27"
-output: html_document
+title: "NYC Restaurant Inspection Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
-
-```{r, message = FALSE, warning=FALSE}
-library(tidyverse)
+```{r setup, include=FALSE}
+library(flexdashboard)
 library(p8105.datasets)
 library(plotly)
 ```
@@ -29,6 +29,10 @@ rest_inspec =
 
 
 
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
 
 ```{r}
 rest_inspec |> 
@@ -38,17 +42,10 @@ rest_inspec |>
   plot_ly(x = ~boro, y = ~perc_closed, color = ~boro, type = "bar")
 ```
 
+Column {data-width=350}
+-----------------------------------------------------------------------
 
-```{r}
-rest_inspec |> 
-  filter(boro != 'Missing') |> 
-  drop_na(score) |> 
-  group_by(boro)|> 
-  do(p=plot_ly(., x = ~score, color = ~boro, type = "histogram")) |> 
-  subplot(nrows = 5, shareX = TRUE)
-```
-
-
+### Chart B
 
 ```{r}
 rest_inspec |> 
@@ -58,19 +55,7 @@ rest_inspec |>
   plot_ly(x = ~grade, color = ~grade, y = ~score, type = 'box' )
 ```
 
-
-
-
-
-
-```{r}
-rest_inspec |> 
-  drop_na(grade, score) |> 
-  filter(grade %in% c('A', 'B', 'C')) |> 
-  count(grade) |> 
-  plot_ly(x = ~grade, y = ~n, color = ~grade, type = "bar")
-```
-
+### Chart C
 
 ```{r}
 rest_inspec |>
@@ -80,7 +65,3 @@ rest_inspec |>
   count(grade) |> 
   plot_ly(x = ~year_month, y = ~n, color = ~grade, type = 'scatter', mode = 'line')
 ```
-
-
-
-

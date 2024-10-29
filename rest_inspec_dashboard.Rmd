@@ -4,12 +4,34 @@ output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
+    navbar:
+      - { title: "Home", href: "index.html", align: left }
+      - { title: "Homework 4 Dashboard", href: "rest_inspec_dashboard.html", align: right }
+      - { title: "Homework 4 Code", href: "p8105_hw4_wem2121.html", align: right }
+      - { title: 'Email' , href: "mailto:w3monical@gmail.com", align: right }
+      - { title: 'GitHub', href: "http://github.com/wayne-monical/", align: right }
+    theme: cerulean
+    
 ---
+
+
+```{r}
+# rendering this document in r studio: 
+# rmarkdown::render("rest_inspec_dashboard.Rmd", output_format = "flexdashboard::flex_dashboard")
+
+# {text: "Homework 4 Dashboard", href: "rest_inspec_dashboard.html", align: right }
+#- { text: "Homework 4 Code", href: "p8105_hw4_wem2121.html", align: right }
+#      - { icon: "fa-envelope fa-lg", href: "mailto:w3monical@gmail.com", align: right }
+#      - { icon: "fa-github fa-lg", href: "http://github.com/wayne-monical/", align: right }
+
+```
+
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
 library(p8105.datasets)
 library(plotly)
+library(tidyverse)
 ```
 
 
@@ -32,30 +54,8 @@ rest_inspec =
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
 
-```{r}
-rest_inspec |> 
-  filter(boro != 'Missing') |> 
-  group_by(boro) |> 
-  summarize(perc_closed = mean(closed_flag)) |> 
-  plot_ly(x = ~boro, y = ~perc_closed, color = ~boro, type = "bar")
-```
-
-Column {data-width=350}
------------------------------------------------------------------------
-
-### Chart B
-
-```{r}
-rest_inspec |> 
-  drop_na(score) |> 
-  filter(grade %in% c('A', 'B', 'C')) |> 
-  group_by(grade)|> 
-  plot_ly(x = ~grade, color = ~grade, y = ~score, type = 'box' )
-```
-
-### Chart C
+### Inspection Grades over Time
 
 ```{r}
 rest_inspec |>
@@ -63,5 +63,36 @@ rest_inspec |>
   filter(grade %in% c('A', 'B', 'C')) |> 
   group_by(year_month) |> 
   count(grade) |> 
-  plot_ly(x = ~year_month, y = ~n, color = ~grade, type = 'scatter', mode = 'line')
+  plot_ly(x = ~year_month, y = ~n, color = ~grade, type = 'scatter', mode = 'line')|> 
+  layout(xaxis = list(title = 'Time'),
+         yaxis = list(title = 'Number of Grades Issued'))
+```
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Inspection Scores by Grade 
+
+```{r}
+rest_inspec |> 
+  drop_na(score) |> 
+  filter(grade %in% c('A', 'B', 'C')) |> 
+  group_by(grade)|> 
+  plot_ly(x = ~grade, color = ~grade, y = ~score, type = 'box' )|> 
+  layout(xaxis = list(title = 'Grade'),
+         yaxis = list(title = 'Score'))
+```
+
+
+### Proportion of Inspections Resulting in Restaurant Closure by Borough
+
+```{r}
+rest_inspec |> 
+  filter(boro != 'Missing') |> 
+  group_by(boro) |> 
+  summarize(perc_closed = mean(closed_flag)) |> 
+  plot_ly(x = ~boro, y = ~perc_closed, color = ~boro, type = "bar") |> 
+  layout(xaxis = list(title = 'Borough'),
+         yaxis = list(title = 'Proportion'))
 ```

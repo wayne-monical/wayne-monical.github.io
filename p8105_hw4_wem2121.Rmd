@@ -1,19 +1,20 @@
 ---
-title: "Homework 4"
-author: "Wayne Monical wem2121"
-date: "2024-10-27"
+title: "NYC Restaurant Inspection Dashboard Code"
 output: html_document
 ---
 
 
-```{r, message = FALSE, warning=FALSE}
-library(tidyverse)
+This document contains the code for the [dashboard of NYC Restaurant inspection](rest_inspec_dashboard.html) data from 2012 to 2017. We begin by loading the following packages
+
+```{r, message = FALSE, warning = FALSE}
+library(flexdashboard)
 library(p8105.datasets)
 library(plotly)
+library(tidyverse)
 ```
 
 
-
+We load the data with the `p1805` data sets package. We clean the date variable and create a variable for the restaurant being closed as a result of the inspection.
 ```{r}
 rest_inspec = 
   p8105.datasets::rest_inspec |> 
@@ -29,48 +30,7 @@ rest_inspec =
 
 
 
-
-```{r}
-rest_inspec |> 
-  filter(boro != 'Missing') |> 
-  group_by(boro) |> 
-  summarize(perc_closed = mean(closed_flag)) |> 
-  plot_ly(x = ~boro, y = ~perc_closed, color = ~boro, type = "bar")
-```
-
-
-```{r}
-rest_inspec |> 
-  filter(boro != 'Missing') |> 
-  drop_na(score) |> 
-  group_by(boro)|> 
-  do(p=plot_ly(., x = ~score, color = ~boro, type = "histogram")) |> 
-  subplot(nrows = 5, shareX = TRUE)
-```
-
-
-
-```{r}
-rest_inspec |> 
-  drop_na(score) |> 
-  filter(grade %in% c('A', 'B', 'C')) |> 
-  group_by(grade)|> 
-  plot_ly(x = ~grade, color = ~grade, y = ~score, type = 'box' )
-```
-
-
-
-
-
-
-```{r}
-rest_inspec |> 
-  drop_na(grade, score) |> 
-  filter(grade %in% c('A', 'B', 'C')) |> 
-  count(grade) |> 
-  plot_ly(x = ~grade, y = ~n, color = ~grade, type = "bar")
-```
-
+### Inspection Grades over Time
 
 ```{r}
 rest_inspec |>
@@ -78,9 +38,33 @@ rest_inspec |>
   filter(grade %in% c('A', 'B', 'C')) |> 
   group_by(year_month) |> 
   count(grade) |> 
-  plot_ly(x = ~year_month, y = ~n, color = ~grade, type = 'scatter', mode = 'line')
+  plot_ly(x = ~year_month, y = ~n, color = ~grade, type = 'scatter', mode = 'line')|> 
+  layout(xaxis = list(title = 'Time'),
+         yaxis = list(title = 'Number of Grades Issued'))
 ```
 
 
+### Inspection Scores by Grade 
+
+```{r}
+rest_inspec |> 
+  drop_na(score) |> 
+  filter(grade %in% c('A', 'B', 'C')) |> 
+  group_by(grade)|> 
+  plot_ly(x = ~grade, color = ~grade, y = ~score, type = 'box' )|> 
+  layout(xaxis = list(title = 'Grade'),
+         yaxis = list(title = 'Score'))
+```
 
 
+### Proportion of Inspections Resulting in Restaurant Closure by Borough
+
+```{r}
+rest_inspec |> 
+  filter(boro != 'Missing') |> 
+  group_by(boro) |> 
+  summarize(perc_closed = mean(closed_flag)) |> 
+  plot_ly(x = ~boro, y = ~perc_closed, color = ~boro, type = "bar") |> 
+  layout(xaxis = list(title = 'Borough'),
+         yaxis = list(title = 'Proportion'))
+```

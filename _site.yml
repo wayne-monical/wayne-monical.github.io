@@ -3,10 +3,10 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
-    - text: "Homework 4 Dashboard"
+    - text: "Restraunt Inspection Dashboard"
       href: rest_inspec_dashboard.html
-    - text: "Homework 4 Code"
-      href: p8105_hw4_wem2121.html
+    - text: "Restraunt Inspection Code"
+      href: rest_inspec_code.html
     - icon: fa-envelope fa-lg
       href: mailto:w3monical@gmail.com
     - icon: fa-github fa-lg

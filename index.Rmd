@@ -10,14 +10,14 @@ output: html_document
 knitr::include_graphics("images/headshot.jpg")
 ```
 
-### About me
+### About Me
 
-Welcome to my website! My name is Wayne, and I am an aspiring biostatistician. I like to use statistics to learn about life. I want to help people make informed decisions about their physical and mental health.  
+Welcome to my website! My name is Wayne, and I am an aspiring biostatistician. I want to help people make informed decisions about their health.  
 
 
 ### Education
 
-I am a first year master's degree student studying  Biostatistics at Columbia's Mailman School of Public Health. In 2021, I graduated from the University of California, Berkeley with a bachelor's degree in Mathematics and Statistics. 
+I am a second year master's degree student studying  Biostatistics at Columbia's Mailman School of Public Health. In 2021, I graduated from the University of California, Berkeley with a bachelor's degree in Mathematics and Statistics. 
 
 
 ### Experience
@@ -26,6 +26,12 @@ From 2021 to 2023, I worked as a data scientist in First Republic Bank's anti-mo
 
 From 2023 to 2024, I worked on JP Morgan's CCOR Analytics team, focusing on cloud computing risks. I used machine learning models to identify vulnerabilities in cloud applications.  
 
+### Featured Projects
+
+- [Elk Migration Dashboard](https://brooklynnrm.github.io/Elk-Migration.github.io/index.html)
+- [Phenome-Wide Association Study](https://pheweb-test-497008612026.us-central1.run.app/phenotypes)
+- [Epigenome-Wide Association Study](https://github.com/wayne-monical/BRCA-EWAS/blob/main/brca_ewas.md)
+- [Severe Flu Analysis](https://github.com/wayne-monical/severe-flu/blob/main/severe_flu.md)
 
 
 ### Contact

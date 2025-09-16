@@ -29,7 +29,7 @@ From 2023 to 2024, I worked on JP Morgan's CCOR Analytics team, focusing on clou
 ### Featured Projects
 
 - [Elk Migration Dashboard](https://brooklynnrm.github.io/Elk-Migration.github.io/index.html)
-- [Phenome-Wide Association Study](https://pheweb-test-497008612026.us-central1.run.app/phenotypes)
+- [Phenome-Wide Association Study of UTI Loci](https://uti-phewas-browser-497008612026.us-central1.run.app/)
 - [Epigenome-Wide Association Study](https://github.com/wayne-monical/BRCA-EWAS/blob/main/brca_ewas.md)
 - [Severe Flu Analysis](https://github.com/wayne-monical/severe-flu/blob/main/severe_flu.md)
 
